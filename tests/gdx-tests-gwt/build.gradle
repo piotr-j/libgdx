@@ -36,7 +36,7 @@ dependencies {
 }
 
 gwt {
-    gwtVersion='2.8.2' // Should match the gwt version used for building the gwt backend
+    gwtVersion="${versions.gwt}" // Should match the gwt version used for building the gwt backend
     maxHeapSize="1G" // Default 256m is not enough for gwt compiler. GWT is HUNGRY
     minHeapSize="1G"
 
@@ -66,7 +66,7 @@ task startHttpServer () {
 
         server = new SimpleHttpFileServerFactory().start(new File(output), httpFilePort)
 
-        println "Server started in directory " + server.getContentRoot() + ", http://localhost:" + server.getPort()
+        println "Server started in directory " + server.getContentRoot() + ", http://localhost:" + server.getPort() + "/index.html"
     }
 }
 

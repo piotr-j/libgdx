@@ -10,6 +10,8 @@
 	<inherits name="com.google.gwt.webgl.WebGL" />
 	<inherits name="com.badlogic.gwtref.GwtReflect"/>
 
+	<inherits name="jsinterop.annotations.Annotations" />
+
 	<script src="soundmanager2-setup.js"/>
 	<script src="soundmanager2-jsmin.js"/>
 	
