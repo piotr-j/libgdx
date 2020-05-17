@@ -17,9 +17,11 @@
 package com.badlogic.gdx.tests.gwt.client;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.badlogic.gdx.tests.gwt.GwtTestWrapper;
+import com.google.gwt.core.client.GWT;
 
 public class GwtTestStarter extends GwtApplication {
 	@Override
@@ -31,6 +33,15 @@ public class GwtTestStarter extends GwtApplication {
 
 	@Override
 	public ApplicationListener createApplicationListener () {
-		return new GwtTestWrapper();
+		return new GwtTestWrapper() {
+			@Override
+			public void create () {
+				super.create();
+				Gdx.app.log("GdxTestGwt", "Running on GWT " + GWT.getVersion());
+
+				var wildVar = "Hello from a var!";
+				Gdx.app.log("GdxTestGwt", "got a wild var here! '" + wildVar + "'");
+			}
+		};
 	}
 }
